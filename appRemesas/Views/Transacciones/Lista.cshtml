@@ -1,0 +1,43 @@
+@model IEnumerable<appRemesas.Models.Remesa>
+
+@{
+    ViewData["Title"] = "Listado de Transacciones";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Remitente</th>
+            <th>Destinatario</th>
+            <th>País Origen</th>
+            <th>País Destino</th>
+            <th>Monto</th>
+            <th>Moneda</th>
+            <th>Tasa de Cambio</th>
+            <th>Monto Final</th>
+            <th>Estado</th>
+            <th>Fecha de Registro</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var remesa in Model)
+        {
+            <tr>
+                <td>@remesa.Id</td>
+                <td>@remesa.Remitente</td>
+                <td>@remesa.Destinatario</td>
+                <td>@remesa.PaisOrigen</td>
+                <td>@remesa.PaisDestino</td>
+                <td>@remesa.Monto</td>
+                <td>@remesa.Moneda</td>
+                <td>@remesa.TasaCambio</td>
+                <td>@remesa.MontoFinal</td>
+                <td>@remesa.Estado</td>
+                <td>@remesa.FechaRegistro.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
